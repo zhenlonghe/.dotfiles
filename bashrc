@@ -194,3 +194,21 @@ stty ixany
 stty ixoff -ixon
 stty stop undef
 stty start undef
+
+#some functions
+
+function sgrep
+{
+    find . -name "*.sop"  -print | xargs  git grep -n -i "$@"
+}
+
+function cgrep
+{
+    find . -name "*.[ch]" -print | xargs  git grep -n -i "$@"
+}
+
+function ff
+{
+    find . -name "$@"
+}
+

@@ -1,9 +1,15 @@
 [user]
-	name=hezhenlong
-	email=zhenlonghe@gmail.com
+    name  = leon
+    email = zhenlonghe@gmail.com
 [color]
-	ui=true
+	ui = true
 [alias]
-	lg=log --color --graph --pretty = format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    lg = log --color --graph --pretty = format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    ci = commit
+    ad = add
+    di = diff
+    st = status
+	br = branch
+	co = checkout
 [core]
-	editor = vim
+    editor = vim

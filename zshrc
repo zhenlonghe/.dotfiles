@@ -64,18 +64,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias l='ls -l'
 
-alias rmr='rm -r'
-alias q='exit'
-
 alias py='python'
-
-#git
-alias gc='git commit'
-alias ga='git add .'
-alias gf='git diff'
-alias gl='git log'
-alias gs='git status'
-
 alias ack='ack-grep'
 
 alias q='exit'
@@ -95,7 +84,7 @@ alias s80='ssh simcom@192.168.224.80'
 alias apgt='sudo apt-get install'
 
 # goagent
-alias goage='python /home/jero/goagent/local/proxy.py'
+alias goage='python ~/goagent/local/proxy.py'
 
 alias tmux="tmux -2"
 # Add an "alert" alias for long running commands.  Use like so:
@@ -131,3 +120,18 @@ stty ixany
 stty ixoff -ixon
 stty stop undef
 stty start undef
+
+function git_branch {
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
+    echo "("${ref#refs/heads/}") ";
+}
+
+function git_since_last_commit {
+    now=`date +%s`;
+    last_commit=$(git log --pretty=format:%at -1 2> /dev/null) || return;
+    seconds_since_last_commit=$((now-last_commit));
+    minutes_since_last_commit=$((seconds_since_last_commit/60));
+    hours_since_last_commit=$((minutes_since_last_commit/60));
+    minutes_since_last_commit=$((minutes_since_last_commit%60));
+    echo "${hours_since_last_commit}h${minutes_since_last_commit}m ";
+}

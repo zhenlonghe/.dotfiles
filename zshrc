@@ -1,6 +1,13 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
+# Path to custom folder
+ZSH_CUSTOM=$HOME/.dotfiles/zsh-custom
+
+# LANG
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -56,12 +63,13 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias l='ls -l'
+
 alias rmr='rm -r'
-alias c='cd'
 alias q='exit'
 
 alias py='python'
 
+#git
 alias gc='git commit'
 alias ga='git add .'
 alias gf='git diff'
@@ -78,6 +86,7 @@ alias e='emacs'
 #for logs
 alias loggrep='egrep -REn CRASH:"\s+(\w+\.){2}\w+\s+\(\w+\s\w+\)" *|grep "email"'
 
+#sim
 alias s55='ssh root@192.168.235.55'
 alias s56='ssh hezhenlong@192.168.193.56'
 alias s70='ssh root@192.168.224.70'

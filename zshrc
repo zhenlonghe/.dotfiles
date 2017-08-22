@@ -1,3 +1,13 @@
+# detect environment
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine=Linux;;
+    Darwin*)    machine=Mac;;
+    CYGWIN*)    machine=Cygwin;;
+    MINGW*)     machine=MinGw;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -58,6 +68,10 @@ if [ -x /usr/bin/dircolors ]; then
 
 fi
 
+#if [ $machine="Mac" ]; then
+    #alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+#fi
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -71,6 +85,7 @@ alias q='exit'
 alias t='tmux'
 alias c='clear'
 alias e='emacs'
+alias vi='vim'
 
 #for logs
 alias loggrep='egrep -REn CRASH:"\s+(\w+\.){2}\w+\s+\(\w+\s\w+\)" *|grep "email"'
